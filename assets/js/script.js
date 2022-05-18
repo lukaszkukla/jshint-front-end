@@ -42,6 +42,9 @@ async function postForm(e) {
 }
 
 function displayErrors(data) {
+    
+    let results = "";
+
     let heading = `JSHint Results for ${data.file}`;
 
     if(data.total_errors === 0) {
@@ -91,7 +94,7 @@ function displayException(data) {
     results += `<div>error number: <strong>${data.error_no}</strong></div>`;
     results += `<div>error text: <strong>${data.error}</strong></div>`;
 
-    document.getElementById('resultsModalTitle').innerText = heading;
+    document.getElementById('resultsModalTitle').innerHTML = heading;
     document.getElementById('results-content').innerHTML = results;
     resultsModal.show();
 }
